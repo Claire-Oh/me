@@ -11,10 +11,12 @@ import platform
 # I think this will print "hello! Let's get started" by calling the print function.
 print("hello! Let's get started")  # it printed "hello! Let's get started"
 
+# I think that some_words would be defined by the list of strings in the square brackets
 some_words = ['what', 'does', 'this', 'line', 'do', '?']
 
 for word in some_words:
     print(word)
+
 
 for x in some_words:
     print(x)
