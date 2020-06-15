@@ -80,7 +80,13 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    return None
+    star_square = []
+    for j in range(10):
+        star_list = []
+        for num in range(10):
+            star_list.append("*")
+        star_square.append(star_list)
+    return star_square
 
 
 def loops_3():
@@ -104,8 +110,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
-
+    number_square = []
+    for i in range(10):
+        number_row = []
+        for j in range(10):
+            number_row.append(i)
+        number_square.append(number_row)
+    return number_square
 
 def loops_4():
     """Make a block of numbers that rises left to right.
