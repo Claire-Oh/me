@@ -43,7 +43,7 @@ def loops_1a():
     E.g.: ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*']
     """
     star_list = []
-    for num in range(10):
+    for i in range(10):
         star_list.append("*")
 
     return star_list
@@ -114,7 +114,7 @@ def loops_3():
     for i in range(10):
         number_row = []
         for j in range(10):
-            number_row.append(i)
+            number_row.append(str(i))
         number_square.append(number_row)
     
     return number_square
@@ -136,7 +136,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    number_square = []
+    for i in range(10):
+        number_row = []
+        for j in range(10):
+            number_row.append(str(j))
+        number_square.append(number_row)
+    return number_square
 
 
 def loops_5():
@@ -163,7 +169,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    number_square = []
+    for i in range(10):
+        loop_row = []
+        for j in range(5):
+            loop_row.append('(i{}, j{})'.format(i,j))
+        number_square.append(loop_row)
+    return number_square
 
 
 def loops_6():
