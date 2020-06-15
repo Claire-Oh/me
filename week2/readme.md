@@ -24,3 +24,18 @@ Excercise 2
     [] --> List
     () --> Tupel
     {} --> Dictionaries
+
+  Excercise 3
+
+  Star_List 
+  .append --> adds a single item to the existing list
+
+  for (insert variable) in range(10) --> range is a function that returns a list
+
+  ["*"] * 10
+
+str(number) returns numbers as strings
+
+.format() allows multiple substitutions and value formatting. This method lets us concatenate elements within a string through positional formatting. 
+
+where ('(i{}, j{})'.format(i,j)) would put variables i and j respectively into the {}
