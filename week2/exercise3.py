@@ -200,7 +200,7 @@ def loops_6():
     """
     the_wedge = []
 
-    for i in range(10):
+    for i in range(5):
         row = []
         for j in range(i + 1):
             row.append(j)
@@ -229,7 +229,15 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    the_pyramid = []
+    num_of_rows = 5 
+    for i in range(10):
+        row = []
+        for j in range(" "*(num_of_rows - i) + "*"*i):
+            row.append(j)
+        the_wedge.append(row)
+    return the_wedge
+
 
 
 def lp(some_kind_of_list, exercise_name):
