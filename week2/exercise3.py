@@ -198,7 +198,14 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    the_wedge = []
+
+    for i in range(10):
+        row = []
+        for j in range(i + 1):
+            row.append(j)
+        the_wedge.append(row)
+    return the_wedge
 
 
 def loops_7():
