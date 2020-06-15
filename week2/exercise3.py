@@ -57,8 +57,8 @@ def loops_1c(number_of_items=5, symbol="#"):
     E.g.: ['#', '#', '#', '#', '#']
     """
     dash_list = []
-    for symbol in range(5):
-        dash_list.append("#")
+    for c in range(number_of_items):
+        dash_list.append(symbol)
     return dash_list
 
 
