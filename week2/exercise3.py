@@ -200,10 +200,10 @@ def loops_6():
     """
     the_wedge = []
 
-    for i in range(5):
+    for i in range(10):
         row = []
         for j in range(i + 1):
-            row.append(j)
+            row.append(str(j))
         the_wedge.append(row)
     return the_wedge
 
@@ -229,14 +229,14 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
+    spaces = 4
     the_pyramid = []
-    num_of_rows = 5 
-    for i in range(10):
-        row = []
-        for j in range(" "*(num_of_rows - i) + "*"*i):
-            row.append(j)
-        the_wedge.append(row)
-    return the_wedge
+    for i in range(5):
+        stars = 9 - (2 * spaces)
+        pyramid_line = ([' '] * spaces + ['*'] * stars + [' '] * spaces)
+        the_pyramid.append(pyramid_line)
+        spaces = spaces - 1
+    return the_pyramid
 
 
 
