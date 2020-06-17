@@ -55,11 +55,13 @@ def stubborn_asker(low, high):
     # in a while loop...
     # ask for a number 
     # if its good return it
-    x = int(input())
-    if low < x < high:
-        return x
-        
-
+    x = int(input("enter a number: ")) 
+    while not (low < x < high):
+        if low < x < high:
+            print("You got the number")
+            return x
+        x = int(input("enter a number: "))
+    return x
 
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
