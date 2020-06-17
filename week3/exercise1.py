@@ -35,7 +35,13 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return None
+    the_numbers = []
+    x = start
+    while x < stop:
+        print(x)
+        the_list.append(x)
+        x = x + 2
+    return the_numbers
 
 
 def stubborn_asker(low, high):
