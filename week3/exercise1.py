@@ -70,13 +70,14 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    number = False 
-    while number == False:
-        only_number = int(input("enter a number: "))
+    only_number = False 
+    while only_number == False:
+        only_number = input("enter a number: ")
         if type(only_number) is int:
-            number = True
             print("it is an integer")
-    return number
+            return only_number
+        only_number = input("enter a number: ")
+    return only_number
 
 
 def super_asker(low, high):
