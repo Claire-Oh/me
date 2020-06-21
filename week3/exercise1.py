@@ -88,7 +88,22 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+    stop_asking = False 
+    while stop_asking == False:
+        stop_asking = input("enter a number: ")
+        if type(stop_asking) is int:
+            print("it is an integer")
+            return stop_asking
+        stop_asking = input("enter a number: ")
+    return stop_asking
+    stop_asking = int(input("enter a number: "))
+    while not (low < stop_asking < high):
+        if (low < stop_asking < high) + (type(stop_asking) is int):
+            print("You got the number")
+            return stop_asking
+        stop_asking = input("enter a number: ")
+    return stop_asking
+  
 
 
 if __name__ == "__main__":
