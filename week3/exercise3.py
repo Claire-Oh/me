@@ -26,28 +26,58 @@ def advancedGuessingGame():
     purpose if you can!
     """
 
-    print("Welcome to the advanced guessing game!")
+    print("\nWelcome to the guessing game!")
     print("A number between _ and _ ?")
-    lowerBound = input("Enter an lower bound: ")
-    upperBound = input("Enter an upper bound: ")
-    print("OK then, a number between {} and {} ?".format(lowerBound, upperBound))
-    lowerBound = int(lowerBound)
+    upperBound = False
+    while type(upperBound) is not int:
+        try:
+            upperBound=int(input("Enter an upper bound value: "))
+        except ValueError:
+            print('This is not an integer!')
+
+    lowerBound = False
+    while type(lowerBound) is not int:
+        try:
+            lowerBound = int(input("Enter a lower bound value: "))
+        except ValueError:
+            print('This is not an integer!')
+
+    
     upperBound = int(upperBound)
+    lowerBound = int(lowerBound)
+
+    if lowerBound > upperBound:
+        temp = lowerBound
+        lowerBound = upperBound
+        upperBound = temp
+        print('Please pick a number between the bounds')
+
+    print("Pick a number between " + str(lowerBound) + " and {} ?".format(upperBound))    
 
     actualNumber = random.randint(lowerBound, upperBound)
 
     guessed = False
 
     while not guessed:
-        guessedNumber = int(input("Guess a number: "))
+        guessedNumber = False
+        while type(guessedNumber) is not int:
+            try:
+                guessedNumber = int(input("Guess a number: "))
+            except ValueError:
+                print('Please try again with an integer')
+
         print("You guessed {},".format(guessedNumber),)
         if guessedNumber == actualNumber:
-            print("You got it!! It was {}".format(actualNumber))
+            print('You got it!')
             guessed = True
         elif guessedNumber < actualNumber:
-            print("Too small, try again :'(")
+            print("Too small, try again")
         else:
-            print("Too big, try again :'(")
+            print("Too big, try again")
+        if guessedNumber < lowerBound:
+            print('That is the lower bound try again please')
+        elif guessedNumber > upperBound:
+          print('That is the upper bound try again please')
     return "You got it!"
 
     
