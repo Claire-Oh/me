@@ -40,7 +40,7 @@ def get_some_details():
     return {
         "lastName": him["name"]["last"],
         "password": him["login"]["password"],
-        "postcodePlusID": None
+        "postcodePlusID": him["location"]["postcode"] + 
         }
 
 
