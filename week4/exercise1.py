@@ -40,7 +40,7 @@ def get_some_details():
     return {
         "lastName": him["name"]["last"],
         "password": him["login"]["password"],
-        "postcodePlusID": him["location"]["postcode"] + 
+        "postcodePlusID": him["location"]["postcode"] + him["id"]["value"]
         }
 
 
@@ -79,11 +79,14 @@ def wordy_pyramid():
     """
     the_pyramid = []
     i = 3
-    response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}")
-    while i < 20:
+    for i in range(3, 20, 2):
+        response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}")
         print(response.text)
         the_pyramid.append(response.text)
-        i = i + 2
+    for i in range(20, 2, -2):
+        response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}")
+        print(response.text)
+        the_pyramid.append(response.text)
     return the_pyramid
     
     
