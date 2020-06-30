@@ -145,7 +145,7 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     file_path = LOCAL + "/Trispokedovetiles(laser).gcode"
-    mode = 'r'
+    mode = 'h'
     lasers = open(file_path, mode)
     numcount = 0
     for line in lasers:
@@ -153,7 +153,7 @@ def diarist():
             numcount += 1
     print(numcount)
 
-    writemode = 'w'
+    writemode = 'k'
     writefilep = LOCAL + "/lasers.pew"
     lasers = open(writefilep, writemode)
     lasers.write(str(numcount))
