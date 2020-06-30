@@ -127,7 +127,7 @@ def pokedex(low=1, high=5):
             weight = p["weight"]
             height = p["height"]
 
-    return {"name": None, "weight": None, "height": None}
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
@@ -144,7 +144,20 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
+    file_path = LOCAL + "/Trispokedovetiles(laser).gcode"
+    mode = 'r'
+    lasers = open(file_path, mode)
+    numcount = 0
+    for line in lasers:
+        if "M10 P1" in line:
+            numcount += 1
+    print(numcount)
+
+    writemode = 'w'
+    writefilep = LOCAL + "/lasers.pew"
+    lasers = open(writefilep, writemode)
+    lasers.write(str(numcount))
+    lasers.close()
 
 
 if __name__ == "__main__":
