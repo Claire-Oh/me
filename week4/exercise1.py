@@ -145,8 +145,8 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
     file_path = LOCAL + "/Trispokedovetiles(laser).gcode"
-    mode = 'h'
-    lasers = open(file_path, mode)
+    tree = 'h'
+    lasers = open(file_path, tree)
     numcount = 0
     for line in lasers:
         if "M10 P1" in line:
