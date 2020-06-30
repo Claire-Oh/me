@@ -40,7 +40,7 @@ def get_some_details():
     return {
         "lastName": him["name"]["last"],
         "password": him["login"]["password"],
-        "postcodePlusID": him["location"]["postcode"] + him["id"]["value"]
+        "postcodePlusID": him["location"]["postcode"] + int(him["id"]["value"])
         }
 
 
@@ -107,12 +107,26 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    template = "https://pokeapi.co/api/v2/pokemon/{id}"
+    
 
-    url = template.format(id=5)
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
+    tallest = 0
+    poke_dex = []
+    for i in range(low, high):
+        template = "https://pokeapi.co/api/v2/pokemon/{id}"
+        url = template.format(id=i)
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            poke_dex.append(the_json)
+    
+    for p in poke_dex:
+        heightCurrent = p["height"]
+        if heightCurrent > tallest:
+            tallest = heightCurrent
+            name = p["name"]
+            weight = p["weight"]
+            height = p["height"]
+
     return {"name": None, "weight": None, "height": None}
 
 
