@@ -77,11 +77,17 @@ def calculate_hypotenuse(base, height):
 
 
 def calculate_area(base, height):
-    pass
+    area = 0.5 * base * height
+    return area
 
 
 def calculate_perimeter(base, height):
-    pass
+    import math
+    a = base
+    b = height
+    c = math.sqrt(a**2 + b**2)
+    perimeter = a + b + c
+    return perimeter
 
 
 def calculate_aspect(base, height):
