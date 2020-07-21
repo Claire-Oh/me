@@ -91,7 +91,15 @@ def calculate_perimeter(base, height):
 
 
 def calculate_aspect(base, height):
-    pass
+    import math
+    a = base
+    b = height
+    c = math.sqrt(a**2 + b**2)
+    s = 0.5*(a + b + c)
+    aspect = (a*b*c)/(8 * (s-a) * (s-b) * (s-c))
+    return aspect
+
+
 
 
 # Make sure you reuse the functions you've already got
