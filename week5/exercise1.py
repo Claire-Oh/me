@@ -95,11 +95,8 @@ def calculate_aspect(base, height):
     a = base
     b = height
     c = math.sqrt(a**2 + b**2)
-    s = 0.5*(a + b + c)
-    aspect = (a*b*c)/(8 * (s-a) * (s-b) * (s-c))
+    aspect = abc/((b+c-a)(c+a-b)(a+b-c))
     return aspect
-
-
 
 
 # Make sure you reuse the functions you've already got
