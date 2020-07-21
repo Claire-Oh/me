@@ -91,12 +91,17 @@ def calculate_perimeter(base, height):
 
 
 def calculate_aspect(base, height):
-    import math
-    a = base
-    b = height
-    c = math.sqrt(a**2 + b**2)
-    aspect = (a*b*c)/((b+c-a)(c+a-b)(a+b-c))
-    return aspect
+    if height > base:
+        aspect = 'tall'
+        return (aspect)
+    if height < base:
+        aspect = 'wide'
+        return (aspect)
+    if height == base:
+        aspect = 'equal'
+        return (aspect)
+
+
 
 
 # Make sure you reuse the functions you've already got
