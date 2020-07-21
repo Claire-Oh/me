@@ -51,7 +51,7 @@ def do_bunch_of_bad_things():
 def countdown(message, start, stop, completion_message):
 
     for i in range(start, stop - 1, -1):
-        response = (message + ": {}".format(i))
+        response = (message + " {}".format(i))
         print(response)
     print(completion_message)
     
