@@ -50,10 +50,12 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
     the_countdown = []
-    i = 9
     for i in range(start, stop, 1):
-        print(message)
-    return completion_message
+        response = ("message: {}".format(i))
+        print(response)
+        the_countdown.append(response)
+        print(completion_message)
+    return the_countdown
 
 
 # TRIANGLES
