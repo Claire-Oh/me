@@ -72,7 +72,7 @@ def calculate_hypotenuse(base, height):
     a = base
     b = height
     c = math.sqrt(a**2 + b**2)
-    print("The length of the hypotenuse is", c )
+    return c
 
 
 
