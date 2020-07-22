@@ -49,13 +49,10 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-
     for i in range(start, stop - 1, -1):
         response = (message + " {}".format(i))
         print(response)
     print(completion_message)
-    
-
 
 
 # TRIANGLES
@@ -75,11 +72,9 @@ def calculate_hypotenuse(base, height):
     return c
 
 
-
 def calculate_area(base, height):
     area = 0.5 * base * height
     return area
-
 
 def calculate_perimeter(base, height):
     import math
@@ -88,7 +83,6 @@ def calculate_perimeter(base, height):
     c = math.sqrt(a**2 + b**2)
     perimeter = a + b + c
     return perimeter
-
 
 def calculate_aspect(base, height):
     if height > base:
@@ -100,8 +94,6 @@ def calculate_aspect(base, height):
     if height == base:
         aspect = 'equal'
         return (aspect)
-
-
 
 
 # Make sure you reuse the functions you've already got
@@ -134,7 +126,7 @@ def get_triangle_facts(base, height, units="mm"):
 #
 # but with the values and shape that relate to the specific
 # triangle we care about.
-def tell_me_about_this_right_triangle(facts_dictionary):
+def diagram_this_triangle(facts_dictionary):
     tall = """
             {height}
             |
@@ -166,22 +158,21 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
-    if facts_dictionary["aspect"] = "tall":
+    if facts_dictionary["aspect"] = 'tall':
         return facts + tall.format(**facts_dictionary)
-
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     
     dictionary_of_triangle_facts = get_triangle_facts(base, height)
-    
+
     diagram = tell_me_about_this_right_triangle(dictionary_of_triangle_facts)
 
     if return_diagram and return_dictionary:
-        return None
+        return {"diagram": diagram, "dictionary": dictionary_of_triangle_facts}
     elif return_diagram:
-        return None
+        return diagram
     elif return_dictionary:
-        return None
+        return dictionary_of_triangle_facts
     else:
         print("You're an odd one, you don't want anything!")
 
@@ -196,8 +187,6 @@ def wordy_pyramid(api_key):
         "&maxLength={length}"
         "&limit=1"
     )
-    
-
     pyramid_list = []
     for i in range(3, 21, 2):
         url = baseURL.format(api_key="", length=i)
@@ -219,25 +208,11 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
-    baseURL = (
-        "http://us-central1-waldenpondpress.cloudfunctions.net/"
-        "give_me_a_word?wordlength={length}"
-    )
-    url = baseURL.format(length=i)
-    r = requests.get(url)
-    if r.status_code is 200:
-        message = r.try:
-        return message
-    else:
-        print("failed a request", r.status_code)
-    
+    pass
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pyramid_list = []
-    for i in list_of_lengths:
-        pyramid_list.append(get_a_word_of_length_n(i))
-    return pyramid_lists
+    pass
 
 
 if __name__ == "__main__":
