@@ -126,7 +126,7 @@ def get_triangle_facts(base, height, units="mm"):
 #
 # but with the values and shape that relate to the specific
 # triangle we care about.
-def diagram_this_triangle(facts_dictionary):
+def tell_me_about_this_right_triangle(facts_dictionary):
     tall = """
             {height}
             |
@@ -158,9 +158,13 @@ def diagram_this_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
-    if facts_dictionary["aspect"] = 'tall':
+    if facts_dictionary["aspect"] is 'tall':
         return facts + tall.format(**facts_dictionary)
-
+    if facts_dictionary["aspect"] is 'wide':
+        return facts + wide.format(**facts_dictionary)
+    if facts_dictionary["aspect"] is 'equal':
+        return facts + equal.format(**facts_dictionary)
+        
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     
     dictionary_of_triangle_facts = get_triangle_facts(base, height)
