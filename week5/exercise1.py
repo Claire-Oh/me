@@ -181,7 +181,7 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
         print("You're an odd one, you don't want anything!")
 
 
-def wordy_pyramid(api_key):
+def wordy_pyramid():
     import requests
 
     
@@ -196,7 +196,8 @@ def wordy_pyramid(api_key):
 
 def get_a_word_of_length_n(length):
     baseURL = (
-        "http://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+        "https://us-central1-waldenpondpress.cloudfunctions.net/"
+        "give_me_a_word?wordlength={length}"
     )
     url = baseURL.format(length=i)
     r = requests.get(url)
