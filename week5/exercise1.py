@@ -195,7 +195,7 @@ def get_a_word_of_length_n(length):
     import requests
     
     baseURL = (
-        "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+        f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
     )
     url = baseURL.format(length)
     r = requests.get(url)
