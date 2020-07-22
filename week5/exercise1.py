@@ -184,14 +184,12 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 def wordy_pyramid():
     import requests
 
-    i = list(range(3, 21, 2))
-    i.extend(list(20, 3, -2))
-    word_lengths = i
+    x = list(range(3, 21, 2))
+    x.extend(list(range(20, 3, -2)))
+    word_lengths = x
     words = list_of_words_with_lengths(word_lengths)
     return words
     
-    
-
 
 def get_a_word_of_length_n(length):
     baseURL = (
