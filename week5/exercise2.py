@@ -91,6 +91,14 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
+    parts = axiom.split(" ")
+    result = list(map(apply_rules, parts))
+    new_abba = " ".join(result)
+    guard -= 1
+    if guard > 0:
+        return abba(new_abba, guard)
+    else:
+        return new_abba
     def apply_rules(letter, guard):
         """Control the substitution.
 
@@ -108,7 +116,7 @@ def abba(source="abba", guard=3):
             return letter
 
     # write the rest of the function here
-    pass
+    
 
 
 def koch(t, order, size):
