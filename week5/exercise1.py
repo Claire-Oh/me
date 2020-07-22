@@ -182,7 +182,6 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 
 
 def wordy_pyramid():
-    import requests
 
     x = list(range(3, 21, 2))
     x.extend(list(range(20, 3, -2)))
@@ -192,16 +191,19 @@ def wordy_pyramid():
     
 
 def get_a_word_of_length_n(length):
+    
+    import requests
+    
     baseURL = (
         "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
     )
-    url = baseURL.format(length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.text
-            return message
-        else:
-            print("failed a request", r.status_code)
+    url = baseURL.format(length)
+    r = requests.get(url)
+    if r.status_code is 200:
+        message = r.text
+        return message
+    else:
+        print("failed a request", r.status_code)
 
 
 def list_of_words_with_lengths(list_of_lengths):
