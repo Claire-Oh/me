@@ -184,7 +184,6 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 def wordy_pyramid():
     import requests
 
-    
     x = list(range(3, 21, 2))
     x.extend(list(20, 3, -2))
     word_lengths = x
@@ -196,8 +195,7 @@ def wordy_pyramid():
 
 def get_a_word_of_length_n(length):
     baseURL = (
-        "https://us-central1-waldenpondpress.cloudfunctions.net/"
-        "give_me_a_word?wordlength={length}"
+        "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
     )
     url = baseURL.format(length=i)
     r = requests.get(url)
