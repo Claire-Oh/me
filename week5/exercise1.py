@@ -184,28 +184,14 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 def wordy_pyramid(api_key):
     import requests
 
-    baseURL = (
-        "http://us-central1-waldenpondpress.cloudfunctions.net/"
-        "give_me_a_word?wordlength={length}"
-    )
-    pyramid_list = []
-    for i in range(3, 21, 2):
-        url = baseURL.format(length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.text
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-    for i in range(20, 3, -2):
-        url = baseURL.format(length=i)
-        r = requests.get(url)
-        if r.status_code is 200:
-            message = r.text
-            pyramid_list.append(message)
-        else:
-            print("failed a request", r.status_code, i)
-    return pyramid_list
+    
+    x = list(range(3, 21, 2))
+    x.extend(list(20, 3, -2))
+    word_lengths = x
+    words = list_of_words_with_lengths(word_lengths)
+    return words
+    
+    
 
 
 def get_a_word_of_length_n(length):
@@ -216,14 +202,19 @@ def get_a_word_of_length_n(length):
     url = baseURL.format(length=i)
     r = requests.get(url)
     if r.status_code is 200:
-        message = r.try:
+        message = r.text
         return message
     else:
         print("failed a request", r.status_code)
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pass
+    
+    pyramid_list = []
+    for i in list_of_lengths:
+        pyramid_list.append(get_a_word_of_length_n(i))
+
+    return pyramid_list
 
 
 if __name__ == "__main__":
