@@ -166,13 +166,15 @@ def tell_me_about_this_right_triangle(facts_dictionary):
     )
 
     facts = pattern.format(**facts_dictionary)
+    if facts_dictionary["aspect"] = "tall":
+        return facts + tall.format(**facts_dictionary)
 
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
     
     dictionary_of_triangle_facts = get_triangle_facts(base, height)
     
-    tell_me_about_this_right_triangle(dictionary_of_triangle_facts)
+    diagram = tell_me_about_this_right_triangle(dictionary_of_triangle_facts)
 
     if return_diagram and return_dictionary:
         return None
