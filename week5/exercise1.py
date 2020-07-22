@@ -209,7 +209,17 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
-    pass
+    baseURL = (
+        "http://us-central1-waldenpondpress.cloudfunctions.net/"
+        "give_me_a_word?wordlength={length}"
+    )
+    url = baseURL.format(length=i)
+    r = requests.get(url)
+    if r.status_code is 200:
+        message = r.try:
+        return message
+    else:
+        print("failed a request", r.status_code)
 
 
 def list_of_words_with_lengths(list_of_lengths):
