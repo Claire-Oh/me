@@ -196,16 +196,12 @@ def wordy_pyramid(api_key):
 
 def get_a_word_of_length_n(length):
     baseURL = (
-        "http://api.wordnik.com/v4/words.json/randomWords?"
-        "api_key={api_key}"
-        "&minLength={length}"
-        "&maxLength={length}"
-        "&limit=1"
+        "http://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
     )
-    url = baseURL.format(api_key="", length=i)
+    url = baseURL.format(length=i)
     r = requests.get(url)
     if r.status_code is 200:
-        message = r.json()[0]["word"]
+        message = r.text
         return message
     else:
         print("failed a request", r.status_code)
