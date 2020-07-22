@@ -184,9 +184,9 @@ def triangle_master(base, height, return_diagram=False, return_dictionary=False)
 def wordy_pyramid():
     import requests
 
-    x = list(range(3, 21, 2))
-    x.extend(list(20, 3, -2))
-    word_lengths = x
+    i = list(range(3, 21, 2))
+    i.extend(list(20, 3, -2))
+    word_lengths = i
     words = list_of_words_with_lengths(word_lengths)
     return words
     
@@ -217,4 +217,8 @@ def list_of_words_with_lengths(list_of_lengths):
 
 if __name__ == "__main__":
     do_bunch_of_bad_things()
-    wordy_pyramid("a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5")
+    countdown("We're about to start", 9, 1, "we finished, wheeeee!")
+    triangle_master(3, 5)
+    pyramid = wordy_pyramid()
+    for word in pyramid:
+        print(word)
