@@ -91,7 +91,7 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-    parts = axiom.split(" ")
+    parts = axiom.split("abba")
     result = list(map(apply_rules, parts))
     new_abba = " ".join(result)
     guard -= 1
