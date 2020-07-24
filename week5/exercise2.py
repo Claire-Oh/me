@@ -91,14 +91,15 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-    parts = axiom.split("abba")
-    result = list(map(apply_rules, parts))
+    part_new = axiom.split(" ")
+    result = list(map(apply_rules, part_new))
     new_abba = " ".join(result)
     guard -= 1
     if guard > 0:
-        return abba(new_abba, guard)
+        return apply_rules(new_abba, guard)
     else:
         return new_abba
+
     def apply_rules(letter, guard):
         """Control the substitution.
 
@@ -107,11 +108,11 @@ def abba(source="abba", guard=3):
         Hint: when guard == -1 return the letter.
         """
         if letter == "a":
-            return "a"
+            return "bba"
         elif letter == "b":
-            return "b"
+            return "aob"
         elif letter == "o":
-            return "o"
+            return "oa"
         else:
             return letter
 
