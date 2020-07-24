@@ -96,7 +96,7 @@ def abba(source="abba", guard=3):
     new_abba = " ".join(result)
     guard -= 1
     if guard > 0:
-        return apply_rules(new_abba, guard)
+        return abba(new_abba, guard)
     else:
         return new_abba
 
