@@ -91,14 +91,7 @@ def abba(source="abba", guard=3):
     aobaobbbabbaoaaobbbaoaaobaobaobbba
                 and so on...
     """
-    part_new = source.split(" ")
-    result = list(map(apply_rules, part_new))
-    new_abba = " ".join(result)
-    guard -= 1
-    if guard > 0:
-        return abba(new_abba, guard)
-    else:
-        return new_abba
+    
 
     def apply_rules(letter, guard):
         """Control the substitution.
@@ -117,6 +110,15 @@ def abba(source="abba", guard=3):
             return letter
 
     # write the rest of the function here
+    part_new = list(source)
+    # result = list(map(apply_rules, part_new, guard))
+    result = [apply_rules(part, guard) for part in part_new]
+    new_abba = "".join(result)
+    guard -= 1
+    if guard > 0:
+        return abba(new_abba, guard)
+    else:
+        return new_abba
     
 
 
