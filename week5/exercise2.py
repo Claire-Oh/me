@@ -163,9 +163,21 @@ def square_koch(t, order, size):
 
     """
     trace = ""
-    # write the rest of the function here.
+    if order == 0:
+        t.forward(size)
+    else:
+        trace += koch(t, order-1, size/3)
+        t.left(90)
+        trace += koch(t, order-1, size/3)
+        t.right(90)
+        trace += koch(t, order-1, size/3)
+        t.right(90)
+        trace += koch(t, order-1, size/3)
+        t.left(90)
+        trace += koch(t, order-1, size/3)
+
     return str(order) + trace
-    pass
+    
 
 
 def draw_square(steps=4):
