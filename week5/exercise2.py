@@ -178,17 +178,23 @@ def square_koch(t, order, size):
 
     return str(order) + trace
     
-
+    
 
 def draw_square(steps=4):
     """Helper function to make testing easier."""
     return draw_koch(drawing_method=square_koch, steps_deep=steps)
-
+    raphael = turtle.Turtle()
+    raphael.speed(1000)
+    raphael.penup()
+    raphael.goto(-300, 0)
+    raphael.pendown()
+    trace = drawing_method(raphael, order=steps_deep, size=600)
+    return trace
 
 def draw_pointy(steps=4):
     """Helper function to make testing easier."""
     return draw_koch(drawing_method=koch, steps_deep=steps)
-
+    
 
 if __name__ == '__main__':
     print(draw_koch(drawing_method=square_koch, steps_deep=2))
