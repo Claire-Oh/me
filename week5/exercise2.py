@@ -166,15 +166,15 @@ def square_koch(t, order, size):
     if order == 0:
         t.forward(size)
     else:
-        trace += koch(t, order-1, size/3)
+        trace += square_koch(t, order-1, size/3)
         t.left(90)
-        trace += koch(t, order-1, size/3)
+        trace += square_koch(t, order-1, size/4)
         t.right(90)
-        trace += koch(t, order-1, size/3)
+        trace += square_koch(t, order-1, size/3)
         t.right(90)
-        trace += koch(t, order-1, size/3)
+        trace += square_koch(t, order-1, size/4)
         t.left(90)
-        trace += koch(t, order-1, size/3)
+        trace += square_koch(t, order-1, size/3)
 
     return str(order) + trace
     
@@ -183,13 +183,6 @@ def square_koch(t, order, size):
 def draw_square(steps=4):
     """Helper function to make testing easier."""
     return draw_koch(drawing_method=square_koch, steps_deep=steps)
-    raphael = turtle.Turtle()
-    raphael.speed(1000)
-    raphael.penup()
-    raphael.goto(-300, 0)
-    raphael.pendown()
-    trace = drawing_method(raphael, order=steps_deep, size=600)
-    return trace
 
 def draw_pointy(steps=4):
     """Helper function to make testing easier."""
