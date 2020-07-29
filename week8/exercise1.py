@@ -88,18 +88,18 @@ def fizz_buzz():
          'Fizz', 'Buzz',  11, 'Fizz', 13, 14, 
          'FizzBuzz', 16, 17, ...]
     """
+    
     fizzBuzzList = []
-    for i in range(100):
-        fizz_buzz = []
+    for i in range(1, 101):
         if i % 3 == 0 and i % 5 == 0:
-	        print("fizzbuzz")
-	    elif i % 3 == 0:
-            print("fizz")
-	    elif i % 5 == 0:
-	        print("buzz")
-	    else:
-            print(i)
-        fizzBuzzList.append(fizz_buzz)
+            fizzBuzzList.append("FizzBuzz")
+        elif i % 3 == 0:
+            fizzBuzzList.append("Fizz")
+        elif i % 5 == 0:
+            fizzBuzzList.append("Buzz")
+        else:
+            fizzBuzzList.append(i)
+    
     return fizzBuzzList
 
 
@@ -113,9 +113,9 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: consider using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-
-    return None
-
+    separator = '|'
+    put_behind_bars = "|" + (separator.join(input_string)) + "|"
+    return put_behind_bars
 
 def pet_filter(letter="a"):
     """Return a list of pets whose name contains the character 'letter'"""
@@ -131,7 +131,9 @@ def pet_filter(letter="a"):
             "hedgehog","guppy",]
     # fmt: on
     filtered = []
-
+    for p in range(len(pets)):
+        if letter in list(pets[p]):
+            filtered.append(pets[p])
     return filtered
 
 
@@ -141,11 +143,17 @@ def best_letter_for_pets():
     TIP: return just a letter, not the list of animals.
     """
     import string
-
+    i=-1
     the_alphabet = string.ascii_lowercase
-    popular_letter = ""
-
+    alphabet_list = list(the_alphabet)
+    for l in range(len(alphabet_list)):
+        new_letter = len(pet_filter(letter=alphabet_list[l]))
+        if new_letter > i:
+            i = new_letter
+            popular_letter = alphabet_list[l]
     return popular_letter
+
+    
 
 
 def make_filler_text_dictionary():
@@ -174,10 +182,18 @@ def make_filler_text_dictionary():
     """
 
     import requests
+    i = 3
+    list_of_words = []
+    for i in range (3):
+        for n in range(3, 8):
+            response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={n}")
+            print(response.text)
+            list_of_words.append(response.text)
+    print(list_of_words)
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
     wd = {}
-
+    for i in list_of_words:
+        wd.setdefault(len(i), []).append(i)
     return wd
 
 
@@ -193,10 +209,14 @@ def random_filler_text(number_of_words=200):
     """
     import random
 
-    my_dict = make_filler_text_dictionary()
-
-    return " ".join(words)
-
+    my_dict = []
+    random_dict = make_filler_text_dictionary()
+    
+    for i in range(0, number_of_words):
+        rand1 = random.randint(3,7)
+        rand2 = random.randint(0,2)
+        my_dict.append(random_dict[rand1][rand2])
+    return (', '.join(my_dict))
 
 def fast_filler(number_of_words=200):
     """Reimplement random_filler_text.
